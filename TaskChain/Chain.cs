@@ -16,15 +16,23 @@ namespace TaskChain
             }
 
             int maximumLenght = 0;
+            List<int> usedLink = new List<int>();
 
             for (int i = 0; i < array.Length; i++)
             {
+                if (usedLink.Exists(e => e == i))
+                {
+                    continue;
+                }
+
                 int counter = 1;
                 int link = array[i];
+                usedLink.Add(link);
 
                 do
                 {
                     link = array[link];
+                    usedLink.Add(link);
                     counter++;
 
                 } while (i != link);
