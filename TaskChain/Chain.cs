@@ -29,13 +29,12 @@ namespace TaskChain
                 int link = array[i];
                 usedLink[link] = true;
 
-                do
+                while (i != link)
                 {
                     link = array[link];
                     usedLink[link] = true;
                     counter++;
-
-                } while (i != link);
+                }
 
                 maximumLenght = counter > maximumLenght ? counter : maximumLenght;
             }
